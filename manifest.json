@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "webspeare",
+    "description": "Change the text on every webpage visited by the user to shakespearean english",
+    "version": "1.0",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage"
+    ],
+    "action": {
+        "default_icon": "./images/heart.png",
+        "default_title": "Title",
+        "default_popup": "/src/popup/popup.html"
+    },
+    "web_accessible_resources": [{
+        "resources": ["/images/heart.png"],
+        "matches": ["https://www.google.com/*"]
+    }],
+    "icons": {
+        "16": "./images/heart.png",
+        "48": "./images/heart.png",
+        "128": "./images/heart.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://www.google.com/*"],
+        "js": ["/src/smtp.js", "/src/jQuery.js", "/src/index.js", "/src/animateFloatingButton.js"],
+        "css": ["/src/style.css"]
+    }]
+}
